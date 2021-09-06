@@ -69,6 +69,8 @@ def hospital_info(hospital_number):
         del record['_id']
     return record
 
-
+@app.route('/member',methods=['GET'])
+def member():
+    return jsonify({'hello':'world'})
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
