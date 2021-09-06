@@ -11,6 +11,7 @@ import pymongo
 from pymongo import MongoClient
 from flask import stream_with_context, request
 
+
 app = Flask(__name__)
 cache = redis.Redis(host='redis', port=6379)
 # use command 'docker inspect {mongo-container-name}' to find Gateway
