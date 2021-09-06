@@ -71,6 +71,8 @@ def hospital_info(hospital_number):
 
 @app.route('/member',methods=['GET'])
 def member():
+    print()
     return jsonify({'hello':'world'})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
