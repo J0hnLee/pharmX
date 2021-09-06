@@ -7,7 +7,7 @@
 ### Start backend 
 
 ```bash
-docker-compose up --rebuild -d <service_name>
+docker-compose up --build -d <service_name>
 ```
 
 ### Start frontend
@@ -26,3 +26,4 @@ docker run \
     -e CHOKIDAR_USEPOLLING=true \
     sample:dev
 ```
+

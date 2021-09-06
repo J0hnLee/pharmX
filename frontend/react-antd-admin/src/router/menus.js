@@ -13,6 +13,38 @@ export const menus = [
 		icon: 'home'
 	},
 	{
+		path: '/new',
+		title: '自己寫的',
+		icon: 'switcher',
+		children: [
+			{
+				path: '/personInfo',
+				title: '處方系統',
+				icon: 'copyright'
+			},
+			{
+				path: '/VideoRecorder',
+				title: '個人信息',
+				icon: 'copyright'
+			},
+			{
+				path: '/connectBackend',
+				title: '後端接口',
+				icon: 'copyright'
+			},
+			{
+				path: '/hospital_location',
+				title: '醫院及診所地點',
+				icon: 'copyright'
+			},
+			{
+				path: '/tdee_calculator',
+				title: 'TDEE 計算機',
+				icon: 'copyright'
+			}
+		]
+	},
+	{
 		path: '/icon',
 		title: '圖標',
 		icon: 'file'
@@ -47,7 +79,7 @@ export const menus = [
 				children: [
 					{
 						path: '/menu/level/submenu-1',
-						title: '三級菜單',
+						title: '三級菜單'
 					},
 					{
 						path: '/menu/level/submenu-2',
@@ -162,21 +194,5 @@ export const menus = [
 		path: '/about',
 		title: '關於',
 		icon: 'copyright'
-	},
-	{
-		path: '/personInfo',
-		title: '處方系統',
-		icon: 'copyright'
-	},
-	{
-		path: '/VideoRecorder',
-		title: '個人信息',
-		icon: 'copyright'
-	},
-	{
-		path: '/connectBackend',
-		title: '後端接口',
-		icon: 'copyright'
 	}
-
 ];

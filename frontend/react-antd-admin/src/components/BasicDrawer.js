@@ -18,7 +18,7 @@ const BasicDrawer = props => {
 					<span>面包屑</span> <Switch defaultChecked={props.breadCrumb.show} onChange={props.onChangeBreadCrumb} />
 				</p>
 				<p style={styles}>
-					<span>多页签</span> <Switch defaultChecked={props.tags.show} onChange={props.onChangeTags} />
+					<span>多頁籤</span> <Switch defaultChecked={props.tags.show} onChange={props.onChangeTags} />
 				</p>
 			</Drawer>
 		</>

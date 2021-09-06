@@ -10,9 +10,10 @@ from flask_pymongo import PyMongo
 import pymongo
 from pymongo import MongoClient
 from flask import stream_with_context, request
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 cache = redis.Redis(host='redis', port=6379)
 # use command 'docker inspect {mongo-container-name}' to find Gateway
 # Making a Connection with MongoClient
@@ -28,7 +29,7 @@ company.insert_many(df.to_dict('record'))
 # mongo = PyMongo(app, uri="mongodb://172.19.0.1:27017/drug_data")
 total_requests = Counter('request_count', 'Total webapp request count')
 
-#TODO:
+# TODO:
 # add patients CRUD
 
 
@@ -70,12 +71,16 @@ def hospital_info(hospital_number):
 
     if '_id' in record:
         del record['_id']
-    return record
+    records=jsonify(record)
+    print(type(records))
+    # return jsonify(record)
 
-@app.route('/member',methods=['GET'])
+
+@app.route('/member', methods=['GET'])
 def member():
     print()
-    return jsonify({'hello':'world'})
+    return jsonify({'hello': 'world'})
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
