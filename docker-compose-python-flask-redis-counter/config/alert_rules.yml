@@ -1,0 +1,11 @@
+groups:
+- name: alert_rules
+  rules:
+  - alert: TooManyReq
+    expr: request_count_total > 100
+    for: 10s
+    labels:
+    annotations:
+      summary: "request_count_total is too over!"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has over 100 for more than 1 sec."
+      username: "@channel"

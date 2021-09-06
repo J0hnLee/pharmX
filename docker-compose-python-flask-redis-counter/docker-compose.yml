@@ -1,0 +1,59 @@
+version: "3.7"
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code # mount file into container, so that you can change local file without rebuild imge
+
+  #NoSQL database
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27018:27017"
+    command: mongod --dbpath /data --port 27017 --config /resource/mongod.yml
+    volumes:
+      - ./config/mongod.yml:/resource/mongod.yml
+      - ./standalone/data:/data
+
+  #cache
+  redis:
+    image: "redis:alpine" #image form Docker Hub registry
+
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./config/alert_rules.yml:/etc/prometheus/alert_rules.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=pass
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+
+  alertmanager:
+    image: prom/alertmanager
+    ports:
+      - 9093:9093
+    volumes:
+      - ./config/alertmanager.yaml/:/etc/alertmanager/alertmanager.yaml
+    restart: always
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yaml"
+      - "--storage.path=/alertmanager"
