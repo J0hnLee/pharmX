@@ -24,7 +24,6 @@ db = client["medical_data"]
 company = db["hospital_data"]
 df = pd.read_csv('./data/hospbsc.csv')
 company.insert_many(df.to_dict('record'))
-print(company)
 
 # mongo = PyMongo(app, uri="mongodb://172.19.0.1:27017/drug_data")
 total_requests = Counter('request_count', 'Total webapp request count')
