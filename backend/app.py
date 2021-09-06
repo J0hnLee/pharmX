@@ -28,6 +28,9 @@ company.insert_many(df.to_dict('record'))
 # mongo = PyMongo(app, uri="mongodb://172.19.0.1:27017/drug_data")
 total_requests = Counter('request_count', 'Total webapp request count')
 
+#TODO:
+# add patients CRUD
+
 
 def get_hit_count():
     retries = 5
