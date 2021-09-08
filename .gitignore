@@ -2,6 +2,7 @@ frontend/react-antd-admin/node_moudules
 frontend/react-antd-admin/node_modules/.bin/marked
 
 backend/code/
+backend/standalone/
 backend/standalone/data/configdb/
 backend/standalone/data/db/
 frontend/react-antd-admin/node_modules/.cache/babel-loader/0aff61d034cb95fea9ebce5ff23d4a84.json
