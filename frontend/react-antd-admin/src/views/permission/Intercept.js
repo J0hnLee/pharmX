@@ -18,8 +18,10 @@ class Intercept extends Component {
 		return (
 			<div className="shadow-radius">
 				<Row>
-					<p>hi, {userInfo.userName}，你当前为{name}，</p>
-					<p>普通用户看不到权限切换页面（被拦截了，(づ￣3￣)づ╭❤～）</p>
+					<p>
+						hi, {userInfo.userName}，你当前为{name}，
+					</p>
+					<p>普通用戶看不到權限切換頁面（被攔截了，(づ￣3￣)づ╭❤～）</p>
 				</Row>
 			</div>
 		);

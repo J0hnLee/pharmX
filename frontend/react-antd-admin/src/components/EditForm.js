@@ -28,24 +28,24 @@ class EditForm extends Component {
 						]
 					})(<Input />)}
 				</Form.Item>
-				<Form.Item label="年龄" {...formItemLayout}>
+				<Form.Item label="年齡" {...formItemLayout}>
 					{getFieldDecorator('age', {
 						initialValue: data.age,
 						rules: [
 							{
 								required: true,
-								message: '请输入年龄'
+								message: '請輸入年齡'
 							}
 						]
 					})(<Input />)}
 				</Form.Item>
-				<Form.Item label="邮箱" {...formItemLayout}>
+				<Form.Item label="郵箱" {...formItemLayout}>
 					{getFieldDecorator('email', {
 						initialValue: data.email,
 						rules: [
 							{
 								required: true,
-								message: '请输入正确的邮箱',
+								message: '請輸入正確郵箱',
 								pattern: /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/
 							}
 						]

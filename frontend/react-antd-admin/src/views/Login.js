@@ -61,18 +61,18 @@ class Login extends Component {
 						<FormItem>
 							{getFieldDecorator('userName', {
 								rules: [{ required: true, message: '請填寫用戶名！' }]
-							})(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />)}
+							})(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用戶名" />)}
 						</FormItem>
 						<FormItem>
 							{getFieldDecorator('password', {
 								rules: [{ required: true, message: '請填寫密碼！' }]
-							})(<Input.Password prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="密码" />)}
+							})(<Input.Password prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="密碼" />)}
 						</FormItem>
 						<FormItem>
 							<Button type="primary" htmlType="submit" block onClick={this.login}>
 								登錄
 							</Button>
-							<div style={{ color: '#999',paddingTop:'10px',textAlign:'center' }}>Tips : 输入任意用户名密码即可</div>
+							<div style={{ color: '#999', paddingTop: '10px', textAlign: 'center' }}>Tips : 輸入任意用戶名密碼即可</div>
 						</FormItem>
 					</Form>
 				</div>
@@ -87,7 +87,4 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(setUserInfo(data));
 	}
 });
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Form.create()(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(Login));

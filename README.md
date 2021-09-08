@@ -10,7 +10,13 @@
 
 ![](images/component_diagram.jpg)
 
+## Quick View
 
+![](images/login.jpg)
+
+![](images/figure_1.jpg)
+
+![](images/figure_2.jpg)
 
 ## Module need to Integrate:
 
