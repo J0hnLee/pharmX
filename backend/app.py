@@ -11,7 +11,7 @@ import pymongo
 from pymongo import MongoClient
 from flask import stream_with_context, request
 from flask_cors import CORS
-
+import json
 app = Flask(__name__)
 CORS(app)
 cache = redis.Redis(host='redis', port=6379)
@@ -64,16 +64,20 @@ def index():
         'status': 'ok'
     })
 
-
+#todo:
+#replace NaN in database
+# because NaN is not a valid value in json.
 @app.route('/hospital_info/<string:hospital_number>', methods=['GET', 'POST'])
 def hospital_info(hospital_number):
     record = company.find_one({"醫事機構代碼": hospital_number})
 
     if '_id' in record:
         del record['_id']
-    records=jsonify(record)
-    print(type(records))
-    # return jsonify(record)
+    # records=json.dumps(record, ensure_ascii=True)
+    # # encode json to utf-8
+    # encoded_data = records.encode('utf-8')
+    encoded_data=jsonify(record)
+    return encoded_data
 
 
 @app.route('/member', methods=['GET'])
