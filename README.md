@@ -8,7 +8,7 @@
 
 ![](images/prometheus-architecture.jpg)
 
-![ ](images/Component diagram.jpeg)
+![](images/Component diagram.jpeg)
 
 
 
