@@ -6,7 +6,7 @@
 
 ## Architecture Description:
 
-![alt monitoring](images/prometheus-architecture.png?raw=true)
+![](images/prometheus-architecture.png)
 
 
 
