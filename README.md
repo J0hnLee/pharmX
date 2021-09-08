@@ -6,25 +6,24 @@
 
 ## Architecture Description:
 
-![](images/prometheus-architecture.png)
+![](images/prometheus-architecture.jpg)
+
+![ ](images/Component diagram.jpeg)
 
 
 
-## Function going to implement：
+## Module need to Integrate:
 
+#### Frontend:
 
+* React
+* [Axios](https://bestofjs.org/projects/axios)-Promise based HTTP client for the browser and node.js
 
-
-
-
-
-
-
-
-
-
-
-
+* [Hyperformula](HyperFormula)-HyperFormula is an open-source calculation engine that allows you to perform Excel-like calculations in your business applications. 
+* Antd-UI
+* Material-UI
+*  [React-use](https://github.com/streamich/react-use) - react hook library
+* [Echart](https://bestofjs.org/projects/echarts) -A powerful, interactive charting and data visualization library for browser
 
 ## Deploy the project:
 
