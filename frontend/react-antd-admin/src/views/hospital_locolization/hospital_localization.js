@@ -30,9 +30,9 @@ const Hospital = () => {
 
 	const submitHandler = event => {
 		event.preventDefault();
-
+		//console.log('http://localhost:5000/hospital_info/'.concat(inputValue));
 		axios
-			.get('http://localhost:5000/hospital_info/1301200010')
+			.get('http://localhost:5000/hospital_info/'.concat(inputValue))
 			.then(response => {
 				//const posts = response;
 				console.log(response);

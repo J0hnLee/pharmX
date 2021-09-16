@@ -14,7 +14,7 @@ export const menus = [
 	},
 	{
 		path: '/new',
-		title: '自己寫的',
+		title: 'main function',
 		icon: 'switcher',
 		children: [
 			{
