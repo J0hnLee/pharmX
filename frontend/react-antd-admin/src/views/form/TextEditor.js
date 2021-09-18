@@ -7,8 +7,12 @@ import draftToMarkdown from 'draftjs-to-markdown';
 import '../../assets/css/editor';
 
 const rawContentState = {
-	entityMap: { '0': { type: 'IMAGE', mutability: 'MUTABLE', data: { src: 'http://i.imgur.com/aMtBIep.png', height: 'auto', width: '100%' } } },
-	blocks: [{ key: '9unl6', text: '', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {} }, { key: '95kn', text: ' ', type: 'atomic', depth: 0, inlineStyleRanges: [], entityRanges: [{ offset: 0, length: 1, key: 0 }], data: {} }, { key: '7rjes', text: '', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {} }]
+	entityMap: { 0: { type: 'IMAGE', mutability: 'MUTABLE', data: { src: 'http://i.imgur.com/aMtBIep.png', height: 'auto', width: '100%' } } },
+	blocks: [
+		{ key: '9unl6', text: '', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {} },
+		{ key: '95kn', text: ' ', type: 'atomic', depth: 0, inlineStyleRanges: [], entityRanges: [{ offset: 0, length: 1, key: 0 }], data: {} },
+		{ key: '7rjes', text: '', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {} }
+	]
 };
 
 class TextEditor extends Component {
@@ -63,10 +67,10 @@ class TextEditor extends Component {
 		return (
 			<div className="shadow-radius">
 				<div className="gutter-example button-demo editor-demo">
-					<Row gutter={16} style={{padding:'0 5px'}}>
-						<Col className="gutter-row" md={24} >
+					<Row gutter={16} style={{ padding: '0 5px' }}>
+						<Col className="gutter-row" md={24}>
 							<div className="gutter-box">
-								<Card title="富文本编辑器" bordered={false}>
+								<Card title="富文本編輯器" bordered={false}>
 									<Editor
 										editorState={editorState}
 										toolbarClassName="home-toolbar"
@@ -81,7 +85,7 @@ class TextEditor extends Component {
 											image: { uploadCallback: this.imageUploadCallBack }
 										}}
 										onContentStateChange={this.onEditorChange}
-										placeholder="请输入正文~~尝试@哦，有惊喜"
+										placeholder="请输入正文~~"
 										spellCheck
 										onFocus={() => {
 											console.log('focus');
@@ -98,24 +102,32 @@ class TextEditor extends Component {
 											separator: ' ',
 											trigger: '@',
 											caseSensitive: true,
-											suggestions: [{ text: 'A', value: 'AB', url: 'href-a' }, { text: 'AB', value: 'ABC', url: 'href-ab' }, { text: 'ABC', value: 'ABCD', url: 'href-abc' }, { text: 'ABCD', value: 'ABCDDDD', url: 'href-abcd' }, { text: 'ABCDE', value: 'ABCDE', url: 'href-abcde' }, { text: 'ABCDEF', value: 'ABCDEF', url: 'href-abcdef' }, { text: 'ABCDEFG', value: 'ABCDEFG', url: 'href-abcdefg' }]
+											suggestions: [
+												{ text: 'A', value: 'AB', url: 'href-a' },
+												{ text: 'AB', value: 'ABC', url: 'href-ab' },
+												{ text: 'ABC', value: 'ABCD', url: 'href-abc' },
+												{ text: 'ABCD', value: 'ABCDDDD', url: 'href-abcd' },
+												{ text: 'ABCDE', value: 'ABCDE', url: 'href-abcde' },
+												{ text: 'ABCDEF', value: 'ABCDEF', url: 'href-abcdef' },
+												{ text: 'ABCDEFG', value: 'ABCDEFG', url: 'href-abcdefg' }
+											]
 										}}
 									/>
 								</Card>
 							</div>
 						</Col>
 						<Col className="gutter-row" md={8}>
-							<Card title="同步转换HTML" bordered={false}>
+							<Card title="同步轉換HTML" bordered={false}>
 								<pre>{draftToHtml(editorContent)}</pre>
 							</Card>
 						</Col>
 						<Col className="gutter-row" md={8}>
-							<Card title="同步转换MarkDown" bordered={false}>
+							<Card title="同步轉換MarkDown" bordered={false}>
 								<pre style={{ whiteSpace: 'pre-wrap' }}>{draftToMarkdown(editorContent)}</pre>
 							</Card>
 						</Col>
 						<Col className="gutter-row" md={8}>
-							<Card title="同步转换JSON" bordered={false}>
+							<Card title="同步轉換JSON" bordered={false}>
 								<pre style={{ whiteSpace: 'normal' }}>{JSON.stringify(editorContent)}</pre>
 							</Card>
 						</Col>

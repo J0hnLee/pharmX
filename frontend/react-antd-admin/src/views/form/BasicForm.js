@@ -104,32 +104,35 @@ class BasicForm extends React.Component {
 		return (
 			<div className="shadow-radius">
 				<div className="public-title">
-					<h1>注册表单</h1>
+					<h1>註冊表單</h1>
 					<h1>
-						更多表单参考：<a target="_blank" href="https://ant.design/components/form-cn/" rel="noopener noreferrer">Form </a>
+						更多表單參考：
+						<a target="_blank" href="https://ant.design/components/form-cn/" rel="noopener noreferrer">
+							Form{' '}
+						</a>
 					</h1>
 				</div>
 				<Form {...formItemLayout} onSubmit={this.handleSubmit}>
-					<Form.Item label="邮箱">
-						{getFieldDecorator('emial', {
+					<Form.Item label="郵箱">
+						{getFieldDecorator('email', {
 							rules: [
 								{
 									type: 'email',
-									message: '请输入正确邮箱！'
+									message: '請輸入正確郵箱！'
 								},
 								{
 									required: true,
-									message: '请输入邮箱！'
+									message: '請輸入郵箱！'
 								}
 							]
 						})(<Input />)}
 					</Form.Item>
-					<Form.Item label="密码" hasFeedback>
+					<Form.Item label="密碼" hasFeedback>
 						{getFieldDecorator('password', {
 							rules: [
 								{
 									required: true,
-									message: '请输入密码！'
+									message: '請輸入密碼!'
 								},
 								{
 									validator: this.validateToNextPassword
@@ -137,12 +140,12 @@ class BasicForm extends React.Component {
 							]
 						})(<Input.Password />)}
 					</Form.Item>
-					<Form.Item label="确认密码" hasFeedback>
+					<Form.Item label="確認密碼" hasFeedback>
 						{getFieldDecorator('confirm', {
 							rules: [
 								{
 									required: true,
-									message: '请确认密码！'
+									message: '請確認密碼!'
 								},
 								{
 									validator: this.compareToFirstPassword
@@ -153,37 +156,37 @@ class BasicForm extends React.Component {
 					<Form.Item
 						label={
 							<span>
-								昵称&nbsp;
-								<Tooltip title="您希望别人叫你什么？">
+								暱稱&nbsp;
+								<Tooltip title="你希望別人叫你什麼?">
 									<Icon type="question-circle-o" />
 								</Tooltip>
 							</span>
 						}
 					>
 						{getFieldDecorator('nickname', {
-							rules: [{ required: true, message: '请输入昵称！', whitespace: true }]
+							rules: [{ required: true, message: '請輸入暱稱!', whitespace: true }]
 						})(<Input />)}
 					</Form.Item>
-					<Form.Item label="常居地">
+					<Form.Item label="居住地">
 						{getFieldDecorator('residence', {
 							initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-							rules: [{ type: 'array', required: true, message: '请选择常居地！' }]
+							rules: [{ type: 'array', required: true, message: '請選擇居住地！' }]
 						})(<Cascader options={residences} />)}
 					</Form.Item>
-					<Form.Item label="手机号码">
+					<Form.Item label="手機號碼">
 						{getFieldDecorator('phone', {
-							rules: [{ required: true, message: '请输入手机号码！' }]
+							rules: [{ required: true, message: '請輸入手機號碼！' }]
 						})(<Input addonBefore={prefixSelector} style={{ width: '100%' }} />)}
 					</Form.Item>
-					<Form.Item label="验证码" extra="我们必须确认你不是机器人.">
+					<Form.Item label="驗證碼" extra="我們必須確認你不是機器人.">
 						<Row gutter={8}>
 							<Col span={12}>
 								{getFieldDecorator('captcha', {
-									rules: [{ required: true, message: '请输入验证码！' }]
+									rules: [{ required: true, message: '請輸入驗證碼！' }]
 								})(<Input />)}
 							</Col>
 							<Col span={12}>
-								<Button>获取验证码</Button>
+								<Button>獲取驗證碼</Button>
 							</Col>
 						</Row>
 					</Form.Item>
@@ -192,13 +195,13 @@ class BasicForm extends React.Component {
 							valuePropName: 'checked'
 						})(
 							<Checkbox>
-								我已经阅读过 <a href="#/agreement">协议</a>
+								我已經閱讀過 <a href="#/agreement">協議</a>
 							</Checkbox>
 						)}
 					</Form.Item>
 					<Form.Item {...tailFormItemLayout}>
 						<Button type="primary" htmlType="submit">
-							注册
+							註冊
 						</Button>
 					</Form.Item>
 				</Form>
