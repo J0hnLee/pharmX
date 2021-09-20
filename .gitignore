@@ -6,6 +6,9 @@ backend/standalone/
 backend/standalone/data
 backend/standalone/data/configdb/
 backend/standalone/data/db/
+backend/forTest/
+backend/modules_under_development/function_going_to_impelement/
+backend/modules_under_development/2.OCR_module/input_img/
 frontend/react-antd-admin/node_modules/
 frontend/react-antd-admin/node_modules/.cache/
 frontend/react-antd-admin/node_modules/jest-environment-jsdom/build/__mocks__/
