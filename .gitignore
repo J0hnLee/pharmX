@@ -3,7 +3,7 @@ frontend/react-antd-admin/node_modules/.bin/marked
 
 backend/code/
 backend/standalone/
-backend/standalone/data
+backend/standalone/data/
 backend/standalone/data/configdb/
 backend/standalone/data/db/
 backend/forTest/
