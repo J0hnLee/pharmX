@@ -23,7 +23,10 @@ class TableSearch extends Component {
 			{
 				title: 'Gender',
 				dataIndex: 'gender',
-				filters: [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }],
+				filters: [
+					{ text: 'Male', value: 'male' },
+					{ text: 'Female', value: 'female' }
+				],
 				width: '20%'
 			},
 			{
@@ -141,4 +144,4 @@ class TableSearch extends Component {
 	}
 }
 
-export default Form.create()(TableSearch);
+export default TableSearch;

@@ -209,4 +209,4 @@ class BasicForm extends React.Component {
 		);
 	}
 }
-export default Form.create()(BasicForm);
+export default BasicForm;

@@ -1,22 +1,20 @@
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
- * @providesModule editOnBlur
  * @format
  * 
+ * @emails oncall+draft_js
  */
-
 'use strict';
 
-var EditorState = require('./EditorState');
+var EditorState = require("./EditorState");
 
-var containsNode = require('fbjs/lib/containsNode');
-var getActiveElement = require('fbjs/lib/getActiveElement');
+var containsNode = require("fbjs/lib/containsNode");
+
+var getActiveElement = require("fbjs/lib/getActiveElement");
 
 function editOnBlur(editor, e) {
   // In a contentEditable element, when you select a range and then click
@@ -27,9 +25,15 @@ function editOnBlur(editor, e) {
   // We therefore force the issue to be certain, checking whether the active
   // element is `body` to force it when blurring occurs within the window (as
   // opposed to clicking to another tab or window).
-  if (getActiveElement() === document.body) {
-    var _selection = global.getSelection();
+  var ownerDocument = e.currentTarget.ownerDocument;
+
+  if ( // This ESLint rule conflicts with `sketchy-null-bool` flow check
+  // eslint-disable-next-line no-extra-boolean-cast
+  !Boolean(editor.props.preserveSelectionOnBlur) && getActiveElement(ownerDocument) === ownerDocument.body) {
+    var _selection = ownerDocument.defaultView.getSelection();
+
     var editorNode = editor.editor;
+
     if (_selection.rangeCount === 1 && containsNode(editorNode, _selection.anchorNode) && containsNode(editorNode, _selection.focusNode)) {
       _selection.removeAllRanges();
     }
@@ -37,6 +41,7 @@ function editOnBlur(editor, e) {
 
   var editorState = editor._latestEditorState;
   var currentSelection = editorState.getSelection();
+
   if (!currentSelection.getHasFocus()) {
     return;
   }

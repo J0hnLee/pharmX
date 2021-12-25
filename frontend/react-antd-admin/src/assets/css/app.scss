@@ -185,30 +185,49 @@ $borderColor: #d8d8d8;
 	padding-bottom: 0;
 }
 
+.list2 {
+	display:flex ;
+	// justify-content: center;/*水平置中*/
+	// align-items: center; /*垂直置中*/
+	padding: 0;
+	ul{display: flex}
+	li{
+		width: calc(100% / 8);
+height: 100px;
+list-style: none;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+cursor: pointer;
+	}
+
+}
+
 .list {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 0;
-	li {
-		width: calc(100% / 8);
-		height: 100px;
-		list-style: none;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		cursor: pointer;
-		i {
-			font-size: 28px;
-			margin-bottom: 5px;
-		}
-		&:hover {
-			background: #e4e4e4;
-			transition: all 0.15s ease-in-out 0s;
-			i {
-				transform: scale(1.5);
-				transition: all 0.15s ease-in-out 0s;
-			}
-		}
-	}
+	// li {
+	// 	width: calc(100% / 8);
+	// 	height: 100px;
+	// 	list-style: none;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+	// 	flex-direction: column;
+	// 	cursor: pointer;
+	// 	i {
+	// 		font-size: 28px;
+	// 		margin-bottom: 5px;
+	// 	}
+	// 	&:hover {
+	// 		background: #e4e4e4;
+	// 		transition: all 0.15s ease-in-out 0s;
+	// 		i {
+	// 			transform: scale(1.5);
+	// 			transition: all 0.15s ease-in-out 0s;
+	// 		}
+	// 	}
+	// }
 }

@@ -1,29 +1,31 @@
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
- * @providesModule DefaultDraftBlockRenderMap
  * @format
  * 
+ * @emails oncall+draft_js
  */
-
 'use strict';
 
-var _require = require('immutable'),
+var React = require("react");
+
+var cx = require("fbjs/lib/cx");
+
+var _require = require("immutable"),
     Map = _require.Map;
 
-var React = require('react');
-
-var cx = require('fbjs/lib/cx');
-
-var UL_WRAP = React.createElement('ul', { className: cx('public/DraftStyleDefault/ul') });
-var OL_WRAP = React.createElement('ol', { className: cx('public/DraftStyleDefault/ol') });
-var PRE_WRAP = React.createElement('pre', { className: cx('public/DraftStyleDefault/pre') });
-
+var UL_WRAP = React.createElement("ul", {
+  className: cx('public/DraftStyleDefault/ul')
+});
+var OL_WRAP = React.createElement("ol", {
+  className: cx('public/DraftStyleDefault/ol')
+});
+var PRE_WRAP = React.createElement("pre", {
+  className: cx('public/DraftStyleDefault/pre')
+});
 var DefaultDraftBlockRenderMap = Map({
   'header-one': {
     element: 'h1'
@@ -42,6 +44,12 @@ var DefaultDraftBlockRenderMap = Map({
   },
   'header-six': {
     element: 'h6'
+  },
+  section: {
+    element: 'section'
+  },
+  article: {
+    element: 'article'
   },
   'unordered-list-item': {
     element: 'li',
@@ -66,5 +74,4 @@ var DefaultDraftBlockRenderMap = Map({
     aliasedElements: ['p']
   }
 });
-
 module.exports = DefaultDraftBlockRenderMap;

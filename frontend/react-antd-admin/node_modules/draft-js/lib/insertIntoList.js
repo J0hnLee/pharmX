@@ -1,22 +1,21 @@
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
- * @providesModule insertIntoList
  * @format
  * 
+ * @emails oncall+draft_js
  */
-
 'use strict';
 
 /**
  * Maintain persistence for target list when appending and prepending.
  */
-function insertIntoList(targetList, toInsert, offset) {
+function insertIntoList(targetListArg, toInsert, offset) {
+  var targetList = targetListArg;
+
   if (offset === targetList.count()) {
     toInsert.forEach(function (c) {
       targetList = targetList.push(c);
@@ -30,6 +29,7 @@ function insertIntoList(targetList, toInsert, offset) {
     var tail = targetList.slice(offset);
     targetList = head.concat(toInsert, tail).toList();
   }
+
   return targetList;
 }
 

@@ -17,29 +17,13 @@ class EditForm extends Component {
 		};
 		return (
 			<Form onSubmit={this.handleSubmit} refs="editForm">
-				<Form.Item label="姓名" {...formItemLayout}>
-					{getFieldDecorator('name', {
-						initialValue: data.name,
-						rules: [
-							{
-								required: true,
-								message: '请输入姓名'
-							}
-						]
-					})(<Input />)}
+				<Form.Item label="姓名" {...formItemLayout} initialValue={data.name} rules={[{ required: true, message: '请输入姓名' }]}>
+					<Input />
 				</Form.Item>
-				<Form.Item label="年齡" {...formItemLayout}>
-					{getFieldDecorator('age', {
-						initialValue: data.age,
-						rules: [
-							{
-								required: true,
-								message: '請輸入年齡'
-							}
-						]
-					})(<Input />)}
+				<Form.Item label="年齡" {...formItemLayout} initialValue={data.age} rules={[{ required: true, message: '請輸入年齡' }]}>
+					<Input />
 				</Form.Item>
-				<Form.Item label="郵箱" {...formItemLayout}>
+				{/* <Form.Item label="郵箱" {...formItemLayout}>
 					{getFieldDecorator('email', {
 						initialValue: data.email,
 						rules: [
@@ -50,7 +34,11 @@ class EditForm extends Component {
 							}
 						]
 					})(<Input />)}
+				</Form.Item> */}
+				<Form.Item label="郵箱" {...formItemLayout} name="email" rules={[{ required: true, message: '請輸入正確郵箱', pattern: /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/ }]} initialValue={data.email}>
+					<Input />
 				</Form.Item>
+
 				<Form.Item {...formTailLayout}>
 					<Button type="primary" onClick={this.props.handleSubmit}>
 						提交
@@ -60,4 +48,4 @@ class EditForm extends Component {
 		);
 	}
 }
-export default Form.create()(EditForm);
+export default EditForm;
